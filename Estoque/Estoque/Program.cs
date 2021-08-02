@@ -3,31 +3,32 @@
 namespace Estoque {
     class Program {
         static void Main(string[] args) {
-            Produto p = new Produto();
 
             Console.WriteLine("Entre com os dados do produto:");
             Console.Write("Nome: ");
-            p.Nome = Console.ReadLine();
+            string nome = Console.ReadLine();
             Console.Write("Preço: ");
-            p.Preco = double.Parse(Console.ReadLine());
+            double preco = double.Parse(Console.ReadLine());
             Console.Write("Quantidade: ");
-            p.Quantidade = int.Parse(Console.ReadLine());
+            int quantidade = int.Parse(Console.ReadLine());
+            
+            Produto p = new Produto(nome, preco, quantidade);
 
             Console.WriteLine();
             Console.WriteLine($"Dados do produto: {p}");
 
             Console.WriteLine();
             Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
-            int quantidade = int.Parse(Console.ReadLine());
-            p.AdicionarProdutos(quantidade);
+            int qtde = int.Parse(Console.ReadLine());
+            p.AdicionarProdutos(qtde);
 
             Console.WriteLine();
             Console.WriteLine($"Dados atualizados: {p}");
 
             Console.WriteLine();
             Console.Write("Digite o número de produtos a ser removido do estoque: ");
-            quantidade = int.Parse(Console.ReadLine());
-            p.RemoverProdutos(quantidade);
+            qtde = int.Parse(Console.ReadLine());
+            p.RemoverProdutos(qtde);
 
             Console.WriteLine();
             Console.WriteLine($"Dados atualizados: {p}");
